@@ -30,6 +30,10 @@ public class BinOp extends Node {
         Type ltype = transformExpr(left, s);
         Type rtype = transformExpr(right, s);
 
+        if (Op.isBoolean(op)) {
+            return Type.BOOL;
+        }
+
         if (ltype != Type.UNKNOWN) {
             return ltype;
         } else if (rtype != Type.UNKNOWN) {

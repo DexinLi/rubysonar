@@ -72,5 +72,22 @@ public enum Op {
         return null;  // unreacheable
     }
 
+    public static boolean isBoolean(Op op) {
+        switch (op) {
+            case Eq:
+            case NotEq:
+            case Gt:
+            case Lt:
+            case Equal:
+            case NotEqual:
+            case LtE:
+            case GtE:
+            case In:
+            case NotIn:
+                return true;
+            default:
+                return false;
+        }
+    }
 
 }
