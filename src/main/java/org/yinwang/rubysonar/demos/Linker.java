@@ -4,6 +4,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.yinwang.rubysonar.*;
 import org.yinwang.rubysonar.ast.Node;
+import org.yinwang.rubysonar.types.UnionType;
 
 import java.io.File;
 import java.util.*;
@@ -142,11 +143,11 @@ class Linker {
             Style link = new Style(Style.Type.LINK, ref.start, ref.end);
             link.id = qname;
 
-            List<String> typings = new ArrayList<>();
+            UnionType typings = new UnionType();
             for (Binding b : bindings) {
-                typings.add(b.type.toString());
+                typings.addType(b.type);
             }
-            link.message = $.joinWithSep(typings, " | ", "{", "}");
+            link.message = typings.toString();
 
             // Currently jump to the first binding only. Should change to have a
             // hover menu or something later.

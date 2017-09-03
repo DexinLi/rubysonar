@@ -49,15 +49,15 @@ public class If extends Node {
         boolean cont2 = UnionType.contains(type2, Type.CONT);
 
         // decide which branch affects the downstream state
-        if (cont1 && cont2) {
-            s.overwrite(State.merge(s1, s2));
-        } else if (cont1) {
+        if (cont1) {
             s.overwrite(s1);
         } else if (cont2) {
             s.overwrite(s2);
+        } else {
+            s.overwrite(State.merge(s1, s2));
         }
 
-        return UnionType.union(type1, type2);
+        return new UnionType(type1, type2);
     }
 
 

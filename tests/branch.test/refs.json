@@ -24,10 +24,14 @@
     },
     "dests": [
       {
-        "name": "y",
         "file": "branch.rb",
-        "start": 48,
-        "end": 49
+        "start": 65,
+        "end": 66
+      },
+      {
+        "file": "branch.rb",
+        "start": 78,
+        "end": 79
       }
     ]
   }
