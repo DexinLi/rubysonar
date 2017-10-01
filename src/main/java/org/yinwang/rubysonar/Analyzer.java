@@ -334,10 +334,10 @@ public class Analyzer {
             }
             System.gc();
             if(e instanceof OutOfMemoryError) {
-                $.msg("Skiping for memory size limit: " + file);
+                $.msg("Skipping for memory size limit: " + file);
             }
             if(e instanceof StackOverflowError) {
-                $.msg("Skiping for stack size limit: " + file);
+                $.msg("Skipping for stack size limit: " + file);
             }
             return null;
         }
